@@ -1,7 +1,9 @@
 export const useFishStore = defineStore('fishStore',() => {
     const fish_log_Array = ref({})
     const speciesCount = ref({})
-  
+    const largestFish = ref({})
+    const smallestFish = ref({})
+
     async function loadFishLogs() {
         const supabase = useSupabaseClient()
         const user = useSupabaseUser()
@@ -24,15 +26,28 @@ export const useFishStore = defineStore('fishStore',() => {
         speciesCount.value = fish_log_Array.value.reduce((count, log) => {
           count[log.species] = (count[log.species] || 0) + 1;
           return count;
-        }, {});
-  
-        //console.log("loaded data..")
-        //console.log(fish_log_Array) // to check if data is loaded
-        //console.log(speciesCount) // to check species count
+        });
+
+        // Largest Fish
+        largestFish.value = fish_log_Array.value.reduce((largest, log) => {
+          if (!largest.size || log.size > largest.size) {
+            return log;
+          }
+          return largest;
+        });
+
+        // Smallest Fish
+        smallestFish.value = fish_log_Array.value.reduce((smallest, log) => {
+          if (!smallest.size || log.size < smallest.size) {
+            return log;
+          }
+          return smallest;
+      })
+
       } else {
         console.log("data is null")
       }
     }
-    return { loadFishLogs, fish_log_Array, speciesCount }
+    return { loadFishLogs, fish_log_Array, speciesCount, largestFish, smallestFish}
   })
   

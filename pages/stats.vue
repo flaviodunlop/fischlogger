@@ -5,7 +5,7 @@
 
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
-
+  /*
   // LOAD DATA FROM DB
   // Load Log Data from DB
   const fish_log_Array = ref([])
@@ -57,9 +57,16 @@
     }
     loaded.value = true
   };
+  */
+  const fishStore = useFishStore()
+  const { loadFishLogs } = fishStore
+  const { largestFish, smallestFish, loaded  } = storeToRefs(fishStore)
+
   // Fetch data
-  loadFishLogs()
- 
+  await useAsyncData('loadFishLogs', async () => {
+    return loadFishLogs()}
+  )
+
   // Average size per species
   const avg_sizes_dict = ref({})
 
@@ -75,8 +82,9 @@
       }));
     }
   }
-  loadAvgSizes()
-
+  await useAsyncData('loadAvgSizes', async () => {
+    return loadAvgSizes()}
+  )
   // Load Species Count
   // mit einer View direkt in Supabase gelöst
   // liefert die Anzahl gefangener Fische pro Spezies pro User in abstiegender Reihenfolge
@@ -102,14 +110,16 @@
           count: most_species.count,
         }
   }
-  loadSpeciesCount()
+  await useAsyncData('loadSpeciesCount', async () => {
+    return loadSpeciesCount()}
+  )
 </script>
 
 <template> 
   <Header />
     <main>
         <h1>Deine Achievments</h1>
-        <article class="stats" v-if="loaded">
+        <article class="stats">
           <!-- Largest Fish -->  
           <div class = "stats_box">
             <h2 class="fish_text">Grösster Fisch</h2>
@@ -139,18 +149,14 @@
             <p class="fish_text">{{least_species_dict.count}}</p>
           </div>
         </article>
-        <!-- wird aktuell nicht ausgeführt da das Laden zu schnell geht um die Meldung lesen zu können
-        <article class="stats" v-else>
-          <h2>Daten werden geladen...</h2>
-        </article>-->
-        
+    
         <!-- Average size per species -->
         <div>
           <h2>Durchschnittliche Grössen</h2>
         </div>
         <article class="stats">
           <div class="stats_box_small" v-for="(species, index) in avg_sizes_dict" :key="index">
-            <img :src="`img/${species.species.toLowerCase()}.svg`" class="fish_img" :alt="species.species">
+            <img :src="`img/${species.species}.svg`" class="fish_img" :alt="species.species">
             <p class="fish_text">{{ species.species }}</p>
             <p class="fish_text">{{ Math.round(species.avgSizeSpecies) }} cm</p>
           </div>

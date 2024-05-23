@@ -2,10 +2,8 @@
   import Header from '../components/Header'
   import Footer from '../components/Footer'
 
-
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
-
 
   // LOAD DATA FROM DB
   // Load Log Data from DB
@@ -70,7 +68,7 @@
   const water_temp = newWaterTemp.value
   const size = newSize.value
 
-  // Valiedieren
+  // Validieren
   if (!species || !air_temp || !water_temp || !size) {
     alert('Bitte alle Felder ausfüllen')
     return
@@ -140,7 +138,7 @@
     return loadFishLogs()}
   )
 
-  };
+  }
 </script>
 
 <!--TEMPLATE-->
