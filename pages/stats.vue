@@ -3,10 +3,6 @@
   import Header from '../components/Header'
   import Footer from '../components/Footer'
 
-  definePageMeta({
-     middleware: 'auth'
-     })
-
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
 

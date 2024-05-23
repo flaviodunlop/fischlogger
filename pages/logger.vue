@@ -2,10 +2,6 @@
   import Header from '../components/Header'
   import Footer from '../components/Footer'
 
-  // Scrpit to hide behind Login //
-  definePageMeta({
-     middleware: 'auth'
-     })
 
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
@@ -13,6 +9,8 @@
 
   // LOAD DATA FROM DB
   // Load Log Data from DB
+
+  /*
   const fish_log_Array = ref([])
   const speciesCount = ref({})
 
@@ -44,7 +42,11 @@
     } else {
       console.log("data is null")
     }
-  };
+  };  
+  */
+  const fishStore = useFishStore()
+  const { loadFishLogs } = fishStore
+  const { fish_log_Array, speciesCount  } = storeToRefs(fishStore)
 
   // Fetch data
   await useAsyncData('loadFishLogs', async () => {
@@ -95,10 +97,7 @@
     //console.log("inserted data..")
   
     // Load data again
-    await useAsyncData('loadFishLogs', async () => {
-    return loadFishLogs()}
-  )
-
+  loadFishLogs()
   }
 
   // Clear input fields
