@@ -44,14 +44,13 @@
   */
   const fishStore = useFishStore()
   const { loadFishLogs } = fishStore
-  const { fish_log_Array, speciesCount  } = storeToRefs(fishStore)
+  const { fish_log_Array, speciesCount} = storeToRefs(fishStore)
 
   // Fetch data
   await useAsyncData('loadFishLogs', async () => {
     return loadFishLogs()}
   )
 
-  
   // INPUT FORM
   // empty values
   const newSpecies = ref('')
@@ -117,10 +116,7 @@
       return
     }
     //console.log("updated data..")
-    await useAsyncData('loadFishLogs', async () => {
-    return loadFishLogs()}
-  )
-
+  loadFishLogs()
   };
 
   // Delete
@@ -134,43 +130,40 @@
       return
     }
     //console.log("deleted data..")
-    await useAsyncData('loadFishLogs', async () => {
-    return loadFishLogs()}
-  )
-
+    loadFishLogs()
   }
 </script>
 
 <!--TEMPLATE-->
 <template> 
-  <Header />
+  <Header/>
   
   <main>
     <!--LOGBUCH-->
     <h1>Dein Logbuch</h1>
       <article class="fish">
         <div>
-          <img src="/img/egli.svg" class="fish_img" alt="Egli">
+          <img src="/img/Egli.svg" class="fish_img" alt="Egli">
           <p class="fish_text">{{ speciesCount.Egli }} / 50</p>
           <p class="fish_text">Egli</p>
         </div>
         <div>
-          <img src="/img/hecht.svg" class="fish_img" alt="Hecht">
+          <img src="/img/Hecht.svg" class="fish_img" alt="Hecht">
           <p class="fish_text">{{speciesCount.Hecht}} / 5</p>
           <p class="fish_text">Hecht</p>
         </div>
         <div>
-          <img src="/img/zander.svg" class="fish_img" alt="Zander">
+          <img src="/img/Zander.svg" class="fish_img" alt="Zander">
           <p class="fish_text">{{speciesCount.Zander}} / 5</p>
           <p class="fish_text">Zander</p>
         </div>
         <div>
-          <img src="/img/forelle.svg" class="fish_img" alt="Forelle">
+          <img src="/img/Forelle.svg" class="fish_img" alt="Forelle">
           <p class="fish_text">{{speciesCount.Forelle}} / 7</p>
           <p class="fish_text">Forelle</p>
         </div>
         <div>
-          <img src="/img/felche.svg" class="fish_img" alt="Felche">
+          <img src="/img/Felche.svg" class="fish_img" alt="Felche">
           <p class="fish_text">{{speciesCount.Felche}} / 7</p>
           <p class="fish_text">Felche</p>
         </div>

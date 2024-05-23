@@ -26,7 +26,7 @@ export const useFishStore = defineStore('fishStore',() => {
         speciesCount.value = fish_log_Array.value.reduce((count, log) => {
           count[log.species] = (count[log.species] || 0) + 1;
           return count;
-        });
+        } , {});
 
         // Largest Fish
         largestFish.value = fish_log_Array.value.reduce((largest, log) => {
@@ -34,7 +34,7 @@ export const useFishStore = defineStore('fishStore',() => {
             return log;
           }
           return largest;
-        });
+        }, {});
 
         // Smallest Fish
         smallestFish.value = fish_log_Array.value.reduce((smallest, log) => {
@@ -42,7 +42,7 @@ export const useFishStore = defineStore('fishStore',() => {
             return log;
           }
           return smallest;
-      })
+      }, {})
 
       } else {
         console.log("data is null")

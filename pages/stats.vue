@@ -60,7 +60,7 @@
   */
   const fishStore = useFishStore()
   const { loadFishLogs } = fishStore
-  const { largestFish, smallestFish, loaded  } = storeToRefs(fishStore)
+  const { largestFish, smallestFish  } = storeToRefs(fishStore)
 
   // Fetch data
   await useAsyncData('loadFishLogs', async () => {
@@ -123,28 +123,28 @@
           <!-- Largest Fish -->  
           <div class = "stats_box">
             <h2 class="fish_text">Grösster Fisch</h2>
-            <img :src="`img/${largestFish.species.toLowerCase()}.svg`" class="fish_img" :alt="largestFish.species">
+            <img :src="`img/${largestFish.species}.svg`" class="fish_img" :alt="largestFish.species">
             <p class="fish_text">{{ largestFish.species}}</p> 
             <p class="fish_text">{{ largestFish.size}} cm</p> 
           </div>
           <!-- Smallest Fish -->  
           <div class = "stats_box">
             <h2 class="fish_text">Kleinster Fisch</h2>
-            <img :src="`img/${smallestFish.species.toLowerCase()}.svg`" class="fish_img" :alt="smallestFish.species">
+            <img :src="`img/${smallestFish.species}.svg`" class="fish_img" :alt="smallestFish.species">
             <p class="fish_text">{{smallestFish.species}}</p>  
             <p class="fish_text">{{smallestFish.size}} cm</p>
           </div>
           <!-- Most caught species -->
           <div class = "stats_box">
             <h2 class="fish_text">Am meisten gefangen</h2>
-            <img :src="`img/${most_species_dict.species.toLowerCase()}.svg`" class="fish_img" :alt="most_species_dict.species">
+            <img :src="`img/${most_species_dict.species}.svg`" class="fish_img" :alt="most_species_dict.species">
             <p class="fish_text">{{most_species_dict.species}}</p>  
             <p class="fish_text">{{most_species_dict.count}}</p>
           </div>
           <!-- Least caught species -->
           <div class = "stats_box">
             <h2 class="fish_text">Am wenigsten gefangen</h2>
-            <img :src="`img/${least_species_dict.species.toLowerCase()}.svg`" class="fish_img" :alt="least_species_dict.species">
+            <img :src="`img/${least_species_dict.species}.svg`" class="fish_img" :alt="least_species_dict.species">
             <p class="fish_text">{{least_species_dict.species}}</p>  
             <p class="fish_text">{{least_species_dict.count}}</p>
           </div>
