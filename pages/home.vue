@@ -7,12 +7,12 @@ import Footer from '../components/Footer'
   <header>
     <div class="logo">
       <NuxtLink to="/" class="nuxt-link-class">
-        <img src="/img/fischlogger_header.png" alt="Logo" height="80px">
+        <img class="header_logo" src="/img/fischlogger_header.png" alt="Logo">
       </NuxtLink>
     </div>
     <div>
       <NuxtLink to="/login" class="nuxt-link-class">
-        <img src="/img/profil.svg"  height="80px">
+        <img class="header_profile" src="/img/profil.svg">
       </NuxtLink>
     </div>
   </header>

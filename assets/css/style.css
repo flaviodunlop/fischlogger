@@ -40,6 +40,16 @@ header{
   margin-bottom: 20px
 }
 
+.header_logo{
+  max-width: 300px;
+  height: auto;
+}
+
+.header_profile{
+  height: 60px;
+  width: auto;
+}
+
 .logo{
   flex:1;
 }
@@ -87,11 +97,11 @@ footer p {
 }
 
 .logo-container img {
-  width: 450px; /* Breite des Logos */
+  width: 400px; /* Breite des Logos */
   height: auto;
 }
 .welcome_header{
-  font-size: 70px;
+  font-size: 60px;
   color: #2c513c;
 }
 
@@ -151,6 +161,14 @@ footer p {
   /* WELCOME */
   .welcome_header{
     font-size: 150px;
+  }
+
+  .header_logo{
+    max-width: 450px;
+  }
+
+  .header_profile{
+    height: 80px;
   }
 
   /* HOME */
@@ -455,11 +473,6 @@ footer p {
     }
   } 
 
-
-
-
-
-
   /* HOW TO */
   .howto {
   justify-content: center;
@@ -470,7 +483,6 @@ footer p {
 
 .howto_article {
   margin-bottom: 20px;
-
 }
 
 .howto_img {
