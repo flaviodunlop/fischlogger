@@ -5,59 +5,7 @@
 
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
-  /*
-  // LOAD DATA FROM DB
-  // Load Log Data from DB
-  const fish_log_Array = ref([])
-  const speciesCount = ref({})
-  const largestFish = ref({})
-  const smallestFish = ref({})
-  const loaded = ref(false)  // für v-if zum checken ob Daten geladen sind
-
-  const loadFishLogs = async () => {
-    const { data: fishLogData } = await supabase
-      .from('fishlog')
-      .select('*')
-      .eq('user_id', user.value.id)
-    if (fishLogData) {
-      fish_log_Array.value = fishLogData.map(fishLog => ({
-        id: fishLog.id,
-        created_at: fishLog.created_at,
-        species: fishLog.species,
-        air_temp: fishLog.air_temp,
-        water_temp: fishLog.water_temp,
-        size: fishLog.size,
-      }));
-
-      // Counting species
-      speciesCount.value = fish_log_Array.value.reduce((count, log) => {
-        count[log.species] = (count[log.species] || 0) + 1;
-        return count;
-      });
-
-      // Largest Fish
-      largestFish.value = fish_log_Array.value.reduce((largest, log) => {
-        if (!largest.size || log.size > largest.size) {
-          return log;
-        }
-        return largest;
-      });
-
-      // Smallest Fish
-      smallestFish.value = fish_log_Array.value.reduce((smallest, log) => {
-        if (!smallest.size || log.size < smallest.size) {
-          return log;
-        }
-        return smallest;
-      });
-
-      //console.log("loaded data..")
-    } else {
-      console.log("data is null")
-    }
-    loaded.value = true
-  };
-  */
+  
   const fishStore = useFishStore()
   const { loadFishLogs } = fishStore
   const { largestFish, smallestFish  } = storeToRefs(fishStore)

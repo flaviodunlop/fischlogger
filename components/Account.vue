@@ -16,7 +16,6 @@ const { data } = await supabase
   .single()
 
 if (data) {
-  console.log(data)
   username.value = data.username
   full_name.value = data.full_name
 }
