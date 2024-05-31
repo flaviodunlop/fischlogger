@@ -18,7 +18,7 @@ async function signUpNewUser() {
       email: email.value,
       password: password.value,
       options: {
-        emailRedirectTo: 'http://localhost:3000/home'},
+        emailRedirectTo: 'https://fischlogger.vercel.app/home'},
     })
     if (error) throw error
     alert('Ein Email mit dem Bestätigungslink wurde an dich gesendet!')
@@ -56,7 +56,7 @@ async function signInWithEmail() {
           class="button"
           :value="loading ? 'Loading...' : 'Einloggen'"
           :disabled="loading"
-        />
+          />
         <p @click="changeSignIn()" style="font-size: 14px; color: grey; text-decoration: underline; cursor: pointer;">neuer User</p>
       </div>
     </div>
