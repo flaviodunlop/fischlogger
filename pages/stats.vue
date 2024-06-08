@@ -1,8 +1,7 @@
-<!--Scrpit to hide behind Login-->
 <script setup>
-  import Header from '../components/Header'
-  import Footer from '../components/Footer'
-
+  definePageMeta({
+    layout: false,
+  })
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
   
@@ -64,7 +63,7 @@
 </script>
 
 <template> 
-  <Header />
+  <NuxtLayout name="general-header">
     <main>
         <h1>Deine Achievments</h1>
         <article class="stats">
@@ -115,8 +114,5 @@
           <NuxtLink to="/logger" class="button_table_green">Neuen Fisch loggen</NuxtLink>
         </div>
     </main>
-  <Footer /> 
+  </NuxtLayout>
 </template>
-
-<script>
-</script>
