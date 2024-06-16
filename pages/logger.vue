@@ -97,6 +97,12 @@
     //console.log("deleted data..")
     await loadFishLogs()
   };
+
+  // Format date Function
+  function formatDate(dateString) {
+  const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+  return new Date(dateString).toLocaleString('de-DE', options).replace(",", "");
+}
 </script>
 
 <!--TEMPLATE-->
@@ -197,17 +203,6 @@
   </NuxtLayout>
 </template>
 
-<script>
-  // Function to transform the date fromat to display it as yyyy-mm-dd hh:mm
-  export default {
-    methods: {
-      formatDate(dateString) {
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-        return new Date(dateString).toLocaleString('de-DE', options).replace(",", "");
-      }
-    }
-  };
-</script>
 
 <style>
 .fish {
@@ -272,7 +267,6 @@
   }
 
   /* Styling for table */
-
   table {
     width:90%;
     margin-left:auto;
@@ -287,7 +281,6 @@
     padding:8px;
   }
 
-  
   /* Head of the table */
   th {
     background:#eee;
@@ -300,7 +293,6 @@
       background-color: white;
     }
   
-    
   .button_table_green {
     background-color: transparent;
     border: 2px solid var(--darkgreen);
