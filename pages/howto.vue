@@ -34,7 +34,7 @@ definePageMeta({
           <img src="/img/mockup_stats.png" class="howto_img" alt="Logger">
       </div>
       <!--LINK ZUM LOGGER-->
-      <div style="margin-top: 30px; margin-bottom: 30px;" class="stats">
+      <div style="margin-top: 30px; margin-bottom: 30px;" class="cross_link">
         <NuxtLink to="/logger" class="button_table_green">Jetzt loslegen!</NuxtLink>
       </div>
     </main>
