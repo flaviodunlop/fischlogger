@@ -73,6 +73,62 @@ h2{
   transform: translateY(0);
 }
 
+.button_table_green {
+  background-color: transparent;
+  border: 2px solid var(--darkgreen);
+  border-radius: 15px;
+  color: var(--darkgreen);
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button_table_green:hover {
+  color: #fff;
+  background-color: var(--darkgreen);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button_table_green:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.button_table_red {
+  background-color: transparent;
+  border: 2px solid var(--darkred);
+  border-radius: 15px;
+  color: var(--darkred);
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button_table_red:hover {
+  color: #fff;
+  background-color: var(--darkred);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button_table_red:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.cross_link {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+}
+
 /* INPUT */
 .inputField {
   background-color: #fff;

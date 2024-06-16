@@ -112,7 +112,7 @@
           </div>
         </article>
         <!--LINK ZUM LOGGER-->
-        <div style="margin-top: 30px; margin-bottom: 30px;" class="stats">
+        <div style="margin-top: 30px; margin-bottom: 30px;" class="cross_link">
           <!-- NuxtLink für die Navigation zur anderen Seite -->
           <NuxtLink to="/logger" class="button_table_green">Neuen Fisch loggen</NuxtLink>
         </div>
@@ -147,4 +147,17 @@
   background-color: #f2f2f2;
   border-radius: 15px;
 }
+.fish_img {
+  width: 100px;
+  height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.fish_text {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
 </style>
