@@ -89,3 +89,48 @@ async function signOut() {
     </div>
   </form>
 </template>
+
+<style>
+.form-widget {
+  max-width: 400px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid var(--darkgreen);
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;}
+  
+  .form-group {
+    width: 360px;
+    display: flex;
+    flex-direction: column; /* Arrange label and input vertically */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 15px; /* Add some space between form groups */
+  }
+
+.form-widget input{
+  text-align: center;
+  width: 350px;
+  height: inherit;
+}
+
+.form-widget label{
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;}
+
+.form-widget button{
+  width: 50%;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: var(--darkgreen);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;}
+</style>

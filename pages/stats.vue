@@ -1,4 +1,7 @@
 <script setup>
+  useHead({
+    title: 'fischlogger.ch - Deine Statistiken',
+  });
   definePageMeta({
     layout: false,
   })
@@ -11,7 +14,7 @@
 
   // Fetch data
   await useAsyncData('loadFishLogs', async () => {
-    return loadFishLogs()}
+    return await loadFishLogs()}
   )
 
   // Average size per species
@@ -30,7 +33,7 @@
     }
   }
   await useAsyncData('loadAvgSizes', async () => {
-    return loadAvgSizes()}
+    return await loadAvgSizes()}
   )
   // Load Species Count
   // mit einer View direkt in Supabase gelöst
@@ -58,7 +61,7 @@
         }
   }
   await useAsyncData('loadSpeciesCount', async () => {
-    return loadSpeciesCount()}
+    return await loadSpeciesCount()}
   )
 </script>
 
@@ -116,3 +119,32 @@
     </main>
   </NuxtLayout>
 </template>
+
+<style>
+.stats {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+}
+
+
+.stats_box {
+  width: 20%;
+  min-width: 350px; 
+  margin: 10px;
+  padding: 15px; 
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+}
+
+.stats_box_small {
+  width: 15%;
+  min-width: 200px; 
+  margin: 10px;
+  padding: 15px; 
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+}
+</style>

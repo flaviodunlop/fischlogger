@@ -9,5 +9,30 @@
   </footer>   
 </template>
 
-<script lang="ts" setup>
-</script>
+<style>
+  .footer {
+    width: 100%;
+    background-color: #2e2e2e;
+    margin-top: 35px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer p {
+    color: rgb(118, 118, 118);
+  }
+
+  .footer_content {
+    display: flex;
+    align-items: center; /* Zentrieren Sie den Inhalt vertikal */
+  }
+
+  .footer_content img {
+    height: 80px;
+    margin-right: 10px; /* Optional: Fügen Sie etwas Abstand zwischen dem Bild und dem Text hinzu */
+  }
+</style>
+

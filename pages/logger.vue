@@ -1,4 +1,7 @@
 <script setup>
+  useHead({
+    title: 'fischlogger.ch - Logger',
+  });
   definePageMeta({
     layout: false,
   })
@@ -11,10 +14,10 @@
 
   // Fetch data
   await useAsyncData('loadFishLogs', async () => {
-    return loadFishLogs()}
+    return await loadFishLogs()}
   )
 
-  // INPUT FORM
+  // INPUT FORM 
   // empty values
   const newSpecies = ref('')
   const newAirTemp = ref('')
@@ -57,7 +60,7 @@
     //console.log("inserted data..")
   
     // Load data again
-  loadFishLogs()
+  await loadFishLogs()
   }
 
   // Clear input fields
@@ -78,7 +81,7 @@
       return
     }
     //console.log("updated data..")
-  loadFishLogs()
+  await loadFishLogs()
   };
 
   // Delete
@@ -92,7 +95,7 @@
       return
     }
     //console.log("deleted data..")
-    loadFishLogs()
+    await loadFishLogs()
   };
 </script>
 
@@ -206,3 +209,201 @@
   };
 </script>
 
+<style>
+.fish {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.fish div {
+  text-align: center;
+}
+
+.fish_img {
+  width: 100px;
+  height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+} 
+
+.fish_text {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 5px solid #2c513c;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f2f2f2;
+  }
+  
+  select {
+    width: 90%;
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  input {
+    width: 90%;
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  /* Styling for table */
+
+  table {
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  table, td, tr, th {
+    text-align: center;
+  }
+  
+  td, tr, th {
+    padding:8px;
+  }
+
+  
+  /* Head of the table */
+  th {
+    background:#eee;
+    font-weight: bold;
+    height: 50px;
+  }
+  
+  .button_col{
+      border: none;
+      background-color: white;
+    }
+  
+    
+  .button_table_green {
+    background-color: transparent;
+    border: 2px solid var(--darkgreen);
+    border-radius: 15px;
+    color: var(--darkgreen);
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+  }
+
+  .button_table_green:hover {
+    color: #fff;
+    background-color: var(--darkgreen);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .button_table_green:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .button_table_red {
+    background-color: transparent;
+    border: 2px solid var(--darkred);
+    border-radius: 15px;
+    color: var(--darkred);
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+  }
+
+  .button_table_red:hover {
+    color: #fff;
+    background-color: var(--darkred);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .button_table_red:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .table_input {
+    height: inherit;
+    text-align: center;
+  }
+  
+  /* TABLE MOBILE VIEW */
+  @media (max-width: 1200px)  {
+
+    thead {
+      display:none;
+    }
+  
+    tr {
+      width: 100%;
+      margin-bottom: 3em;
+    }
+  
+    td {
+      float: left;
+      width: 100%;
+      padding:0.2em;
+      display: flex; /* Verwenden von Flexbox */
+      align-items: center; /* Vertikal zentrieren */
+      flex-direction: column; /* Flex-Richtung auf Spalte setzen */
+    }
+  
+    td::before {
+      content:attr(data-label);
+      word-wrap: break-word;
+      background: #ffffff;
+      width: 160px;
+      float:left;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .table_input {
+      width: 70%;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .table_block {
+      background-color: #f2f2f2;
+    }
+
+    .button_col {
+      padding-top: 0px;
+    }
+    
+    .button_table_red {
+      margin-bottom: 30px
+    }
+  } 
+</style>

@@ -81,3 +81,20 @@ async function signInWithEmail() {
     </div>
   </form>
 </template>
+<style>
+.login{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_box{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+  border:1px solid rgb(5, 48, 4);
+  border-radius:10px;
+  margin:20px;
+}
+</style>

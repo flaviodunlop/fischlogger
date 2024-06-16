@@ -14,5 +14,37 @@
   </header>
 </template>
 
-<script lang="ts" setup>
-</script>
+<style>
+header{
+  display:flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+
+.header_logo{
+  max-width: 300px;
+  height: auto;
+}
+
+.header_profile{
+  height: 60px;
+  width: auto;
+}
+
+.logo{
+  flex:1;
+}
+
+@media (min-width: 1000px) {
+  .header_logo{
+    max-width: 450px;
+  }
+
+  .header_profile{
+    height: 80px;
+  }
+}
+</style>

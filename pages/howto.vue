@@ -1,4 +1,7 @@
 <script setup>
+useHead({
+  title: 'fischlogger.ch - Wie funktioniert fischlogger?',
+});
 definePageMeta({
   layout: false,
 })
@@ -37,3 +40,21 @@ definePageMeta({
     </main>
   </NuxtLayout>
 </template>
+<style>
+  .howto {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.howto_article {
+  margin-bottom: 20px;
+}
+
+.howto_img {
+  max-width: 50%; /* Maximale Breite des Bildes auf 100% festlegen */
+  min-width: 450px;
+  height: auto; /* Automatische Höhe beibehalten */
+}
+</style>
